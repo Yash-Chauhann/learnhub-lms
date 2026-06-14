@@ -5,7 +5,7 @@ const cors = require("cors");
 
 dotenv.config();
 
-const app = express(); // ✅ app MUST be here FIRST
+const app = express();
 
 app.use(cors());
 app.use(express.json());
@@ -18,16 +18,14 @@ app.get("/api/protected", authMiddleware, (req, res) => {
     userId: req.user.id
   });
 });
-// MongoDB Connect
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected Successfully"))
   .catch((err) => console.log("MongoDB Error:", err));
 
-// Routes
 const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
 
-// Test Route
 app.get("/", (req, res) => {
   res.send("QuickLearn Backend Running");
 });

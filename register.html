@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | JEEverse</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+        }
+
+        .auth-box{
+            width:400px;
+            background:rgba(17,24,39,.9);
+            padding:40px;
+            border-radius:20px;
+            backdrop-filter:blur(10px);
+            box-shadow:0 20px 50px rgba(0,0,0,.4);
+        }
+
+        .auth-box h2{
+            text-align:center;
+            margin-bottom:25px;
+            color:#fff;
+        }
+
+        .auth-box input{
+            width:100%;
+            padding:14px;
+            margin:10px 0;
+            border:none;
+            border-radius:10px;
+            outline:none;
+            background:#0f172a;
+            color:white;
+        }
+
+        .auth-box button{
+            width:100%;
+            padding:14px;
+            margin-top:15px;
+            border:none;
+            border-radius:10px;
+            background:linear-gradient(135deg,#8b5cf6,#6366f1);
+            color:white;
+            font-weight:600;
+            cursor:pointer;
+        }
+
+        .auth-box p{
+            text-align:center;
+            margin-top:15px;
+            color:#cbd5e1;
+        }
+
+        .auth-box a{
+            color:#8b5cf6;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="auth-box">
+
+    <h2>Create Account 🚀</h2>
+
+    <input type="text" id="name" placeholder="Enter Name">
+
+    <input type="email" id="email" placeholder="Enter Email">
+
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <button onclick="registerUser()">Register</button>
+
+    <p>Already have an account? <a href="login.html">Login</a></p>
+
+</div>
+
+<script>
+function registerUser() {
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if(!name || !email || !password){
+        alert("Please fill all fields");
+        return;
+    }
+
+    fetch("http://localhost:5000/api/auth/signup", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name,
+            email,
+            password
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message);
+
+        if(data.message.includes("success")){
+            window.location.href = "login.html";
+        }
+    });
+
+}
+</script>
+
+</body>
+</html>

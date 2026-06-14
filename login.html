@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | JEEverse</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.auth-box{
+    width:400px;
+    background:#111827;
+    padding:40px;
+    border-radius:20px;
+}
+
+.auth-box h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.auth-box input{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+}
+
+.auth-box button{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+    background:#8b5cf6;
+    color:white;
+    cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+<div class="auth-box">
+
+    <h2>Welcome Back 🚀</h2>
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Enter Email">
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Enter Password">
+
+    <button onclick="loginUser()">
+        Login
+    </button>
+
+</div>
+
+<script>
+
+async function loginUser(){
+
+    const email =
+    document.getElementById("email").value;
+
+    const password =
+    document.getElementById("password").value;
+
+    if(!email || !password){
+        alert("Please fill all fields");
+        return;
+    }
+
+    try{
+
+        const response = await fetch(
+            "http://localhost:5000/api/auth/login",
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    email,
+                    password
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if(response.ok){
+
+            localStorage.setItem(
+                "token",
+                data.token
+            );
+
+            localStorage.setItem(
+                "user",
+                JSON.stringify(data.user)
+            );
+
+            alert("Login Successful");
+
+            window.location.href =
+            "dashboard.html";
+
+        }else{
+            alert(data.message);
+        }
+
+    }catch(err){
+        console.log(err);
+        alert("Server Error");
+    }
+
+}
+
+</script>
+
+</body>
+</html>

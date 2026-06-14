@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+    --primary:#8b5cf6;
+    --secondary:#7c3aed;
+    --dark:#0b1120;
+    --card:#111827;
+    --text:#ffffff;
+    --gray:#cbd5e1;
+    --danger:#ef4444;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:var(--dark);
+    color:var(--text);
+    display:flex;
+    min-height:100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+    width:260px;
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    background:#111827;
+    padding:30px 20px;
+    border-right:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:30px;
+    font-weight:800;
+    margin-bottom:40px;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    padding:14px 16px;
+    margin-bottom:12px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:var(--gray);
+}
+
+.sidebar li:hover{
+    background:rgba(139,92,246,.15);
+    color:white;
+    transform:translateX(5px);
+}
+
+.sidebar i{
+    width:20px;
+}
+
+/* Logout Button */
+
+.logout-btn{
+    width:100%;
+    margin-top:30px;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:var(--danger);
+    color:white;
+    font-weight:600;
+    transition:.3s;
+}
+
+.logout-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-content{
+    margin-left:260px;
+    width:calc(100% - 260px);
+    padding:40px;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+
+
+
+.topbar h1{
+    font-size:32px;
+    font-weight:700;
+}
+/* Topbar */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+/* User Box */
+
+.user-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:#111827;
+    padding:10px 18px;
+    border-radius:12px;
+}
+
+.user-box i{
+    font-size:32px;
+    color:#8b5cf6;
+}
+
+.user-box h3{
+    font-size:16px;
+    margin:0;
+}
+
+.user-box p{
+    font-size:12px;
+    color:#94a3b8;
+    margin-top:2px;
+}
+
+
+
+
+
+/* =========================
+   DASHBOARD CARDS
+========================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:var(--card);
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    transition:.3s;
+    border:1px solid transparent;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:var(--primary);
+    box-shadow:0 20px 40px rgba(139,92,246,.2);
+}
+
+.card h2{
+    color:var(--primary);
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:var(--gray);
+}
+
+/* =========================
+   ACTIVITY SECTION
+========================= */
+
+.activity{
+    margin-top:50px;
+}
+
+.activity h2{
+    margin-bottom:25px;
+    font-size:28px;
+}
+
+.activity-card{
+    background:var(--card);
+    padding:18px 20px;
+    border-radius:14px;
+    margin-bottom:15px;
+    transition:.3s;
+    border-left:4px solid var(--primary);
+}
+
+.activity-card:hover{
+    transform:translateX(8px);
+}
+
+/* =========================
+   PROGRESS BOX
+========================= */
+
+.progress-section{
+    margin-top:50px;
+}
+
+.progress-section h2{
+    margin-bottom:20px;
+}
+
+.progress-box{
+    background:var(--card);
+    padding:25px;
+    border-radius:20px;
+}
+
+.progress-bar{
+    width:100%;
+    height:12px;
+    background:#1e293b;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+.progress-fill{
+    width:85%;
+    height:100%;
+    background:linear-gradient(
+        135deg,
+        #8b5cf6,
+        #6366f1
+    );
+}
+
+/* =========================
+   UPCOMING TESTS
+========================= */
+
+.test-section{
+    margin-top:50px;
+}
+
+.test-section h2{
+    margin-bottom:20px;
+}
+
+.test-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.test-card{
+    background:var(--card);
+    padding:25px;
+    border-radius:20px;
+    transition:.3s;
+}
+
+.test-card:hover{
+    transform:translateY(-6px);
+}
+
+.test-card h3{
+    margin-bottom:10px;
+}
+
+.test-card p{
+    color:var(--gray);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .sidebar{
+        width:220px;
+    }
+
+    .main-content{
+        margin-left:220px;
+        width:calc(100% - 220px);
+    }
+}
+
+@media(max-width:768px){
+
+    body{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        position:relative;
+        width:100%;
+        height:auto;
+    }
+
+    .main-content{
+        margin-left:0;
+        width:100%;
+        padding:25px;
+    }
+
+    .topbar{
+        flex-direction:column;
+        gap:15px;
+        align-items:flex-start;
+    }
+}
+
+@media(max-width:500px){
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .test-list{
+        grid-template-columns:1fr;
+    }
+
+    .topbar h1{
+        font-size:24px;
+    }
+}
+
+
+

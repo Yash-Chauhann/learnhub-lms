@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEEverse Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            JEE<span>verse</span>
+        </div>
+
+        <ul>
+            <li><i class="fas fa-home"></i> Dashboard</li>
+            <li><i class="fas fa-book"></i> My Courses</li>
+            <li><i class="fas fa-video"></i> Live Classes</li>
+            <li><i class="fas fa-file-alt"></i> Test Series</li>
+            <li><i class="fas fa-brain"></i> AI Doubt Solver</li>
+            <li><i class="fas fa-user"></i> Profile</li>
+        </ul>
+
+        <button class="logout-btn" onclick="logout()">
+            Logout
+        </button>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <div class="topbar">
+
+            <h1>
+                Welcome Back 🚀
+            </h1>
+
+            <div class="user-box">
+                <i class="fas fa-user-circle"></i>
+               <div>
+        <h3 id="username">Student</h3>
+        <p id="useremail">student@test.com</p>
+    </div>
+</div>
+</div>
+
+        <!-- Cards -->
+
+        <div class="cards">
+
+            <div class="card">
+                <h2>12</h2>
+                <p>Courses Enrolled</p>
+            </div>
+
+            <div class="card">
+                <h2>85%</h2>
+                <p>Progress</p>
+            </div>
+
+            <div class="card">
+                <h2>25</h2>
+                <p>Tests Attempted</p>
+            </div>
+
+            <div class="card">
+                <h2>AIR 450</h2>
+                <p>Predicted Rank</p>
+            </div>
+
+        </div>
+
+        <!-- Recent Activity -->
+
+        <section class="activity">
+
+            <h2>Recent Activity</h2>
+
+            <div class="activity-card">
+                Completed Physics Mock Test
+            </div>
+
+            <div class="activity-card">
+                Solved 25 AI Doubts
+            </div>
+
+            <div class="activity-card">
+                Watched Calculus Lecture
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="dashboard.js"></script>
+
+</body>
+</html>

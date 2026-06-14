@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<div class="main-content">
+
+    <h1>My Profile</h1>
+
+    <div class="card">
+
+        <label>Name</label>
+        <input type="text" id="name">
+
+        <br><br>
+
+        <label>Email</label>
+        <input type="email" id="email" readonly>
+
+        <br><br>
+
+        <label>Progress</label>
+        <input type="text" id="progress" readonly>
+
+        <br><br>
+
+        <button onclick="updateProfile()">
+            Update Profile
+        </button>
+
+    </div>
+
+</div>
+
+<script src="profile.js"></script>
+
+</body>
+</html>
