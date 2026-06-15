@@ -12,7 +12,7 @@ async function loadCourses() {
 
     try {
 
-        const res = await fetch("http://localhost:5000/api/courses");
+        const res = await fetch("https://learnhub-lms-tzzw.onrender.com/api/courses");
 
         const courses = await res.json();
 

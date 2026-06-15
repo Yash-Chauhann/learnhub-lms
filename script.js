@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-
+const API_URL = "https://learnhub-lms-tzzw.onrender.com";
     /* =========================
        NAVBAR SCROLL EFFECT
     ========================== */
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
 
-            const res = await fetch("http://localhost:5000/api/doubts", {
+            const res = await fetch("https://learnhub-lms-tzzw.onrender.com/api/doubts", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

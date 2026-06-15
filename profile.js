@@ -11,7 +11,7 @@ async function loadProfile() {
     try {
 
         const res = await fetch(
-            "http://localhost:5000/api/profile",
+            "https://learnhub-lms-tzzw.onrender.com/api/profile",
             {
                 headers: {
                     Authorization: `Bearer ${token}`
