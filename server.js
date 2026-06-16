@@ -24,7 +24,9 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => console.log("MongoDB Error:", err));
 
 const authRoutes = require("./routes/auth");
+const doubtRoutes = require("./routes/doubts");
 app.use("/api/auth", authRoutes);
+app.use("/api/doubts", doubtRoutes);
 
 app.get("/", (req, res) => {
   res.send("QuickLearn Backend Running");
