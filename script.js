@@ -67,7 +67,7 @@ const API_URL = "https://learnhub-lms-tzzw.onrender.com";
     const aiInput = document.querySelector(".ai-box input");
     const aiButton = document.querySelector(".ai-box button");
 
-    async function askAI() {
+    window.askAI = async function () {
 
         const token = localStorage.getItem("token");
 

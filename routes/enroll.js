@@ -1,22 +1,38 @@
-const express = require("express");
-const router = express.Router();
+const API_URL = "https://learnhub-lms-tzzw.onrender.com";
 
-const Enrollment = require("../models/Enrollment");
-const authMiddleware = require("../middleware/authMiddleware");
+async function enrollCourse(courseId) {
 
-// ENROLL COURSE
-router.post("/", authMiddleware, async (req, res) => {
+    const token = localStorage.getItem("token");
 
-    const { courseId } = req.body;
+    if (!token) {
+        alert("Please login first");
+        window.location.href = "login.html";
+        return;
+    }
 
-    const enroll = new Enrollment({
-        userId: req.user.id,
-        courseId
-    });
+    try {
 
-    await enroll.save();
+        const response = await fetch(`${API_URL}/api/enroll`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                courseId
+            })
+        });
 
-    res.json({ message: "Enrolled Successfully 🚀" });
-});
+        const data = await response.json();
 
-module.exports = router;
+        if (response.ok) {
+            alert("Course enrolled successfully 🎉");
+        } else {
+            alert(data.message);
+        }
+
+    } catch (err) {
+        console.error(err);
+        alert("Server Error");
+    }
+}
